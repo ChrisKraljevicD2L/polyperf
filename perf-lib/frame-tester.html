@@ -79,7 +79,7 @@
         this.base = value;
         break;
       case 'strategy':
-        this.strategy = this.strategies[strategy] || this.strategy;
+        this.strategy = this.strategies[value] || this.strategies.minimum;
         break;
     }
   };
