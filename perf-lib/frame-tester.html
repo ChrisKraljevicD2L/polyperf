@@ -66,6 +66,7 @@
     this.log = this.querySelector('#log');
     this.attributeChangedCallback('runs', null, this.getAttribute('runs') || 25);
     this.attributeChangedCallback('base', null, this.getAttribute('base') || '');
+    this.attributeChangedCallback('delay', null, this.getAttribute('delay') || 200);
     this.attributeChangedCallback('strategy', null, this.getAttribute('strategy') || 'minimum');
     window.addEventListener('message', this.scoreMessage.bind(this));
   }
@@ -77,6 +78,9 @@
         break;
       case 'base':
         this.base = value;
+        break;
+      case 'delay':
+        this.delay = isNaN(value) ? 200 : parseInt(value);
         break;
       case 'strategy':
         this.strategy = this.strategies[value] || this.strategies.minimum;
@@ -125,7 +129,13 @@
       this.shuffled = this.shuffle(this.tests);
       this.index = -1;
       //console.group('run', this.count);
-      this.nextTest();
+      if (this.delay) {
+        setTimeout(function() {
+          this.nextTest();
+        }.bind(this), this.delay);
+      } else {
+        this.nextTest();
+      }
     },
 
     nextTest: function() {
