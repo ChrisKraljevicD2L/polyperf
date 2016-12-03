@@ -16,13 +16,13 @@ Then navigate to  [http://localhost:8080/components/polyperf/sample/runner.html]
 
 <img width="469" alt="screen shot 2016-11-03 at 12 54 32" src="https://cloud.githubusercontent.com/assets/1369170/19982787/b20dee9e-a1c4-11e6-8d2b-d7f607eaeff9.png">
 
-The tests are run by `runner.html`, which defines the list of tests to run. Edit `runner.html` to choose test pages to run, and how many times each test should be run. By default, each test runs 25 times, but you can configure it by changing the `frame-tester`'s `runs` attribute:
+The tests are run by `runner.html`, which defines the list of tests to run. Edit `runner.html` to choose test pages to run, and how many times each test should be run. By default, each test runs 25 times with a 200ms delay between runs, but you can configure it by changing the `frame-tester`'s `runs` and/or `delay` attributes:
 
 ```
-<frame-tester runs="25"></frame-tester>
+<frame-tester runs="25" delay="300"></frame-tester>
 ```
 
-By default, the `frame-tester` reports the minimum observed run duration, however this can be configured to report the mean duration within one standard deviation:
+By default, the `frame-tester` reports the minimum observed run duration, however this can be configured with the `strategy` attribute  to report the mean duration within one standard deviation.
 
 ```
 <frame-tester strategy="onedev"></frame-tester>
