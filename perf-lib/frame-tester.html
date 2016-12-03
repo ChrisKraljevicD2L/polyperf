@@ -80,8 +80,7 @@
         this.base = value;
         break;
       case 'delay':
-        value = isNaN(value) ? 200 : parseInt(value);
-        this.delay = value;
+        this.delay = isNaN(value) ? 200 : parseInt(value);
         break;
       case 'strategy':
         this.strategy = this.strategies[value] || this.strategies.minimum;
