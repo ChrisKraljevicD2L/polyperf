@@ -20,8 +20,6 @@
     "type": "git",
     "url": "https://github.com/PolymerLabs/polyperf.git"
   },
-  "dependencies": {
-    "polymer": "Polymer/polymer#^1.4.0"
-  },
+  "dependencies": {},
   "private": true
 }
